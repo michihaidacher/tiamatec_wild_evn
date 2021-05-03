@@ -15,8 +15,8 @@ export default {
 
 const Template = ({ label, ...args }) => {
   // You can either use a function to create DOM elements or use a plain html string!
-  // return `<div>${label}</div>`;
-  return createButton({ label, ...args });
+   return `<div>${label}</div>`;
+  //return createButton({ label, ...args });
 };
 
 export const Primary = Template.bind({});
