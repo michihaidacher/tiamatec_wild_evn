@@ -13,12 +13,12 @@ Clone project from https://github.com/michihaidacher/tiamatec_wild_evn.git
 
 Install all the dependencies using the command npm install
 
-cd tiamatec_wild_evn/
-npm install
-npm install -g express-generator
+* cd tiamatec_wild_evn/
+* npm install
+* npm install -g express-generator
 
 ### Install requirements App ###
 
-cd evnApp/
-npm install
+* cd evnApp/
+* npm install
 
