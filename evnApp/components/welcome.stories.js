@@ -1,6 +1,6 @@
 import { withLinks } from '@storybook/addon-links';
 
-import './welcome.css';
+import './welcome.scss';
 import welcome from './welcome.html';
 
 
@@ -27,7 +27,8 @@ export default {
 const Template = ({ label }) => {
   Template.args = { label: 'hello123' };
   var result = createElementFromHTML(welcome);
-  result.innerHTML = label;
+  
+  result.innerHTML = label; // changing label
   return result;
 };
 
