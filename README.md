@@ -1,11 +1,11 @@
 # EVN - Digital Component Library 
 
-##Requirements##
+## Requirements ##
 
 Node 12.22 or later version 
 
 
-##Getting Started## 
+## Getting Started ## 
 
 Clone project from https://github.com/michihaidacher/tiamatec_wild_evn.git
 
