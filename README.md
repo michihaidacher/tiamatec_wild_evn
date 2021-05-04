@@ -23,3 +23,15 @@ Install all the dependencies using the command npm install
 * npm install
 * _if you run into an error with npm install, try in command shell: set-executionpolicy remotesigned_
 
+## Development setup ##
+
+### Run Storybook ###
+* cd tiamatec_wild_evn/
+* npm run storybook
+* Storybook will be opened in your browser
+
+### Build Project ###
+* cd evnApp/
+* npm start
+* navigate to http://localhost:3000
+
