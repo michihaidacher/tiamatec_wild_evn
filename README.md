@@ -21,5 +21,5 @@ Install all the dependencies using the command npm install
 
 * cd evnApp/
 * npm install
-_if you run into an error with npm install, try in command shell: set-executionpolicy remotesigned_
+* _if you run into an error with npm install, try in command shell: set-executionpolicy remotesigned_
 
