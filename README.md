@@ -1,5 +1,24 @@
-# EVN - Storybook HTML 
+# EVN - Digital Component Library 
 
-**1. clone git Project** 
+##Requirements##
 
-git clone https://github.com/michihaidacher/tiamatec_wild_evn.git
+Node 12.22 or later version 
+
+
+##Getting Started## 
+
+Clone project from https://github.com/michihaidacher/tiamatec_wild_evn.git
+
+**Install requirements Storybook** 
+
+Install all the dependencies using the command npm install
+
+cd tiamatec_wild_evn/
+npm install
+npm install -g express-generator
+
+**Install requirements App**
+
+cd evnApp/
+npm install
+
