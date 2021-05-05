@@ -13,7 +13,7 @@ export default {
   argTypes: {
     type: {
       label: { type: { name: 'string' } },
-      control: { type: 'select', options: ['Primary','Secondary','Tertiary','Light','Medium Grey','Large Fixed','Large Flexible']}},
+      control: { type: 'select', options: ['Primary','Secondary','Tertiary','Light','Medium Grey','Fixed','Flexible']}},
       adaptability: { control: 'select', options: ['Flexible', 'Fixed'] },
       disabled:   { control: 'boolean' },
       iconType:   {control: 'text'},
@@ -21,67 +21,76 @@ export default {
     },
 };
 
-const result = createElementFromHTML(button);
+const buttonElement = createElementFromHTML(button);
 
-const Template = ({ label, className, ...args }) => {
+const Template = ({ label, className, disabled, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large'}
 
-  result.classList.add(className);
-  result.innerHTML = label;
-  if(result.classList.length > 2){
-    var secondClass = result.classList[1]
-    result.classList.remove(secondClass);
+  // add class
+  buttonElement.classList.add(className);
+  // change label
+  buttonElement.innerHTML = label;
+  // disabled
+  if(disabled){
+    buttonElement.disabled = true;
+  }else{
+    buttonElement.disabled = false;
   }
-  return result;
+
+
+  if(buttonElement.classList.length > 2){
+    var secondClass = buttonElement.classList[1]
+    buttonElement.classList.remove(secondClass);
+  }
+  return buttonElement;
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  label: 'Button Primary',
+  label: 'Button',
   className: 'button_primary',
+  disabled: true
 };
-
-console.log(Primary);
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: 'Button Secondary',
+  label: 'Button',
   type: 'Secondary',
   className: 'button_secondary',
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
-  label: 'Button Tertiary',
+  label: 'Button',
   type: 'Tertiary',
   className: 'button_tertiary',
 };
 
 export const Light = Template.bind({});
 Light.args = {
-  label: 'Button Light',
+  label: 'Button',
   type: 'Light',
   className: 'button_light',
 };
 
 export const MediumGrey = Template.bind({});
 MediumGrey.args = {
-  label: 'Button Grey',
+  label: 'Button',
   type: 'Medium Grey',
   className: 'button_grey',
 };
 
 export const LargeFixed = Template.bind({});
 LargeFixed.args = {
-  label: 'Button Large Fixed',
+  label: 'Button',
   type: 'Large Fixed',
   className: 'button_fixed',
 };
 
 export const LargeFlexible = Template.bind({});
 LargeFlexible.args = {
-  label: 'Button Large Flexible',
+  label: 'Button',
   type: 'Large Flexible',
   className: 'button_flexible',
 };
