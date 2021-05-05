@@ -35,3 +35,7 @@ Install all the dependencies using the command npm install
 * npm start
 * navigate to http://localhost:3000
 
+### Add Component ###
+
+* navigate to evnApp/components/
+* create newComponent.html, newComponent.scss, newComponent.stories.js
