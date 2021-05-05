@@ -6,3 +6,30 @@ body {
 a {
   color: #00B7FF;
 }
+
+
+.button_large {
+
+  font-family: "Frutiger Next LT W10";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  color: #fff;
+  letter-spacing: -0.10000000149011612px;
+  text-align: left;
+  border: 0;
+  line-height: 20px;
+  height: 56px;
+  width: 127px;
+  border-radius: 14px;
+  padding: 8px 8px 8px 16px;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  transition: all 150ms ease-out;
+  font-family: sans-serif;
+  background-repeat: no-repeat !important;
+  background-position: right 10px top 8px !important;
+  background-color: #E0001B;
+}

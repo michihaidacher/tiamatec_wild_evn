@@ -17,20 +17,50 @@ export default {
       adaptability: { control: 'select', options: ['Flexible', 'Fixed'] },
       disabled:   { control: 'boolean' },
       iconType:   {control: 'text'},
-      className: { type: { name: 'button_large' } },
     },
 };
 
 const buttonElement = createElementFromHTML(button);
 
-const Template = ({ label, className, disabled, ...args }) => {
+const Template = ({ label, className, disabled, control, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large'}
-
-  // add class
-  buttonElement.classList.add(className);
+  Template.args = { control: 'button_large'}
+  
   // change label
   buttonElement.innerHTML = label;
+
+  // add class on switching stories
+  buttonElement.classList.add(className);
+
+  // add Class on switching type
+  var newClass = '';
+  switch(control){
+    case 'Primary':
+      newClass = 'button_primary';
+      break;
+    case 'Secondary':
+      newClass = 'button_secondary';
+      break;
+    case 'Tertiary':
+      newClass = 'button_tertiary';
+      break;
+    case 'Light':
+      newClass = 'button_light';
+      break;
+    case 'Medium Grey':
+      newClass = 'button_grey';
+      break;
+    case 'Fixed':
+      newClass = 'button_fixed';
+      break;
+    case 'Flexible':
+      newClass = 'button_flexible';
+      break;
+  }
+
+  //buttonElement.classList.add(newClass);
+
   // disabled
   if(disabled){
     buttonElement.disabled = true;
@@ -38,7 +68,8 @@ const Template = ({ label, className, disabled, ...args }) => {
     buttonElement.disabled = false;
   }
 
-
+  // buttons first class is button large class
+  // second class (old) will be deleted and new second class added
   if(buttonElement.classList.length > 2){
     var secondClass = buttonElement.classList[1]
     buttonElement.classList.remove(secondClass);
@@ -50,49 +81,50 @@ export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
   className: 'button_primary',
-  disabled: true
+  control: 'button_primary',
+  disabled: false
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
-  type: 'Secondary',
   className: 'button_secondary',
+  control: 'button_secondary',
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   label: 'Button',
-  type: 'Tertiary',
   className: 'button_tertiary',
+  control: 'button_tertiary',
 };
 
 export const Light = Template.bind({});
 Light.args = {
   label: 'Button',
-  type: 'Light',
   className: 'button_light',
+  control: 'button_light',
 };
 
 export const MediumGrey = Template.bind({});
 MediumGrey.args = {
   label: 'Button',
-  type: 'Medium Grey',
   className: 'button_grey',
+  control: 'button_grey',
 };
 
 export const LargeFixed = Template.bind({});
 LargeFixed.args = {
   label: 'Button',
-  type: 'Large Fixed',
   className: 'button_fixed',
+  control: 'button_fixed',
 };
 
 export const LargeFlexible = Template.bind({});
 LargeFlexible.args = {
   label: 'Button',
-  type: 'Large Flexible',
   className: 'button_flexible',
+  control: 'button_flexible',
 };
 
 

@@ -1,3 +1,9 @@
+// @font-face {
+//     font-family: "myfont";
+//     src: url("../../fonts/font.woff") format('woff');
+// }
+
+
 .button_large {
 
     font-family: "Frutiger Next LT W10";
@@ -11,7 +17,7 @@
     border: 0;
     line-height: 20px;
     height: 56px;
-    width: 237px;
+    width: 127px;
     border-radius: 14px;
     padding: 8px 8px 8px 16px;
     cursor: pointer;
@@ -101,7 +107,7 @@
 }
 
 .button_fixed {
-    width: 100%;
+    width: 300%;
     background: #E0001B;
     background-image: url("../../assets/button/primary/button_arrow_right.png") !important;
 
