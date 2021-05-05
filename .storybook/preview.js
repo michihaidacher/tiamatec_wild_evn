@@ -5,6 +5,7 @@ export const parameters = {
       order: ['Foundation', 'Components'],
     },
   },
+  layout: 'centered',
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
     matchers: {

@@ -1,0 +1,78 @@
+//*************************************************************
+// RESPONSIVE BREAKPOINTS
+//*************************************************************
+
+$break_x_small : 600px;
+$break_small : 601px;
+$break_medium : 768px;
+$break_large : 1024px;
+$break_x_large : 1441px;
+
+@mixin x-small() {
+
+    /*Media Query between 0 to 600px */
+    @media (max-width: #{$break_x_small}) {
+        @content;
+    }
+}
+
+@mixin small() {
+
+    /*Media Query between 601px to 767px */
+    @media (min-width: #{$break_small}) {
+        @content;
+    }
+}
+
+@mixin medium() {
+
+    /*Media Query between 768px to 1023px */
+    @media (min-width: #{$break_medium}) {
+        @content;
+    }
+}
+
+@mixin medium-max() {
+
+    /*Media Query to 1023px */
+    @media (max-width: #{$break_large - 1}) {
+        @content;
+    }
+}
+
+@mixin large() {
+
+    /*Media Query between 1024px to 1400px */
+    @media (min-width: #{$break_large}) {
+        @content;
+    }
+}
+
+@mixin x-large() {
+
+    /*Media Query above 1400 */
+    @media (min-width:#{$break_x_large}) {
+        @content;
+    }
+}
+
+//*************************************************************
+// PLACEHOLDER
+//*************************************************************
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content
+    }
+
+    :-moz-placeholder {
+        @content
+    }
+
+    ::-moz-placeholder {
+        @content
+    }
+
+    :-ms-input-placeholder {
+        @content
+    }
+}

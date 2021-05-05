@@ -1,4 +1,4 @@
-import './colors.css';
+import './colors.scss';
 import colors from './colors.html';
 
 export default {

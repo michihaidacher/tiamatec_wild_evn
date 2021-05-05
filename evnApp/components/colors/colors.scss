@@ -1,0 +1,254 @@
+@use "sass:map";
+@import '../theme.scss';
+@import '../variables.scss';
+
+@import '../theme.scss';
+
+
+.mt-20 {
+    margin-top: 48px !important;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 800px;
+    column-count: 2;
+    column-gap: 0;
+
+
+    &.col-1 {
+        column-count: 1;
+    }
+
+    li {
+        padding: 10px 15px;
+        margin: 0;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.4000000059604645px;
+        text-align: left;
+
+
+        &.p-050 {
+            background: $primary-050;
+            color: $primary-contrast-050;
+        }
+
+        &.p-100 {
+            background: $primary-100;
+            color: $primary-contrast-100;
+        }
+
+        &.p-200 {
+            background: $primary-200;
+            color: $primary-contrast-200;
+        }
+
+        &.p-300 {
+            background: $primary-300;
+            color: $primary-contrast-300;
+        }
+
+        &.p-400 {
+            background: $primary-400;
+            color: $primary-contrast-400;
+        }
+
+        &.p-500 {
+            background: $primary-500;
+            color: $primary-contrast-500;
+        }
+
+        &.p-600 {
+            background: $primary-600;
+            color: $primary-contrast-600;
+        }
+
+        &.p-700 {
+            background: $primary-700;
+            color: $primary-contrast-700;
+        }
+
+        &.p-800 {
+            background: $primary-800;
+            color: $primary-contrast-800;
+        }
+
+        &.p-900 {
+            background: $primary-900;
+            color: $primary-contrast-900;
+        }
+
+        &.s-050 {
+            background: $secondary-050;
+            color: $secondary-contrast-050;
+        }
+
+        &.s-100 {
+            background: $secondary-100;
+            color: $secondary-contrast-100;
+        }
+
+        &.s-200 {
+            background: $secondary-200;
+            color: $secondary-contrast-200;
+        }
+
+        &.s-300 {
+            background: $secondary-300;
+            color: $secondary-contrast-300;
+        }
+
+        &.s-400 {
+            background: $secondary-400;
+            color: $secondary-contrast-400;
+        }
+
+        &.s-500 {
+            background: $secondary-500;
+            color: $secondary-contrast-500;
+        }
+
+        &.s-600 {
+            background: $secondary-600;
+            color: $secondary-contrast-600;
+        }
+
+        &.s-700 {
+            background: $secondary-700;
+            color: $secondary-contrast-700;
+        }
+
+        &.s-800 {
+            background: $secondary-800;
+            color: $secondary-contrast-800;
+        }
+
+        &.s-900 {
+            background: $secondary-900;
+            color: $secondary-contrast-900;
+        }
+
+        &.w-200 {
+            background: $warn-200;
+
+        }
+
+        &.w-500 {
+            background: $warn-500;
+            // background: mat-color($warn, 500);
+            // color: mat-contrast($warn, 500);
+        }
+
+        &.w-800 {
+            background: $warn-800;
+
+            // background: mat-color($warn, 800);
+            // color: mat-contrast($warn, 800);
+        }
+
+        &.ss-200 {
+            background: $success-200;
+
+        }
+
+        &.ss-500 {
+            background: $success-500;
+            color: $success-contrast-500;
+
+        }
+
+        &.ss-800 {
+            background: $success-800;
+            color: $success-contrast-800;
+
+        }
+
+        &.e-200 {
+            background: $error-200;
+
+        }
+
+        &.e-500 {
+            background: $error-500;
+            color: $error-contrast-500;
+        }
+
+        &.e-800 {
+            background: $error-800;
+            color: $error-contrast-800;
+
+        }
+
+        &.surface {
+            background: $surface;
+        }
+
+        &.joulie-blue {
+            background: $joulie-blue;
+            color: $joulie-blue-contrast;
+        }
+
+        &.joulie-peach {
+            background: $joulie-peach;
+            color: $joulie-peach-contrast;
+        }
+
+        &.kableplus-orange {
+            background: $kableplus-orange;
+            color: $kableplus-orange-contrast;
+        }
+
+        &.dashgreen {
+            background: $dashgreen;
+            color: $dashgreen-contrast;
+        }
+
+        &.dashpurple {
+            background: $dashpurple;
+            color: $dashpurple-contrast;
+        }
+
+        &.p-he {
+            background: #fff;
+            color: rgba(0, 0, 0, 0.88);
+        }
+
+        &.p-me {
+            background: #f6b8bf;
+            color: rgba(0, 0, 0, 0.88);
+        }
+
+        &.p-d {
+            background: #ec6676;
+            color: rgba(0, 0, 0, 0.88);
+        }
+
+        &.s-he {
+            background: #3a3a3a;
+            color: #fff;
+        }
+
+        &.s-me {
+            background: #707070;
+            color: #fff;
+        }
+
+        &.s-d {
+            background: #999999;
+            color: #fff;
+        }
+
+        &.border-outline {
+            border: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+    }
+}
