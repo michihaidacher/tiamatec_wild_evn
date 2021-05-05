@@ -17,7 +17,7 @@ ul {
     width: 800px;
     column-count: 2;
     column-gap: 0;
-    margin: 0 auto; //test
+
 
     &.col-1 {
         column-count: 1;
@@ -26,6 +26,14 @@ ul {
     li {
         padding: 10px 15px;
         margin: 0;
+        font-family: Roboto;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.4000000059604645px;
+        text-align: left;
+
 
         &.p-050 {
             background: $primary-050;
@@ -128,71 +136,85 @@ ul {
         }
 
         &.w-200 {
-            // background: mat-color($warn, 200);
-            // color: mat-contrast($warn, 200);
+            background: $warn-200;
+
         }
 
         &.w-500 {
+            background: $warn-500;
             // background: mat-color($warn, 500);
             // color: mat-contrast($warn, 500);
         }
 
         &.w-800 {
+            background: $warn-800;
+
             // background: mat-color($warn, 800);
             // color: mat-contrast($warn, 800);
         }
 
         &.ss-200 {
-            // background: mat-color($success, 200);
-            // color: mat-contrast($success, 200);
+            background: $success-200;
+
         }
 
         &.ss-500 {
-            // background: mat-color($success, 500);
-            // color: mat-contrast($success, 500);
+            background: $success-500;
+            color: $success-contrast-500;
+
         }
 
         &.ss-800 {
-            // background: mat-color($success, 800);
-            // color: mat-contrast($success, 800);
+            background: $success-800;
+            color: $success-contrast-800;
+
         }
 
         &.e-200 {
-            // background: mat-color($error, 200);
-            // color: mat-contrast($error, 200);
+            background: $error-200;
+
         }
 
         &.e-500 {
-            // background: mat-color($error, 500);
-            // color: mat-contrast($error, 500);
+            background: $error-500;
+            color: $error-contrast-500;
         }
 
         &.e-800 {
-            // background: mat-color($error, 800);
-            // color: mat-contrast($error, 800);
+            background: $error-800;
+            color: $error-contrast-800;
+
         }
 
         &.surface {
-            // background: $surface;
-            // color: mat-color($secondary, 900);
+            background: $surface;
         }
 
         &.joulie-blue {
-            // background: $joulie-blue;
-            // color: $surface;
+            background: $joulie-blue;
+            color: $joulie-blue-contrast;
         }
 
         &.joulie-peach {
-            // background: $joulie-peach;
-            // color: mat-color($secondary, 900);
+            background: $joulie-peach;
+            color: $joulie-peach-contrast;
         }
 
         &.kableplus-orange {
-            // background: $kableplus-orange;
-            // color: mat-color($secondary, 900);
+            background: $kableplus-orange;
+            color: $kableplus-orange-contrast;
         }
 
-        /* Automatically will be applied by material styles. */
+        &.dashgreen {
+            background: $dashgreen;
+            color: $dashgreen-contrast;
+        }
+
+        &.dashpurple {
+            background: $dashpurple;
+            color: $dashpurple-contrast;
+        }
+
         &.p-he {
             background: #fff;
             color: rgba(0, 0, 0, 0.88);
@@ -223,10 +245,10 @@ ul {
             color: #fff;
         }
 
-        /* Automatically will be applied by material styles. */
-
         &.border-outline {
             border: 1px solid #e8e8e8;
+            box-sizing: border-box;
+            border-radius: 4px;
         }
     }
 }
