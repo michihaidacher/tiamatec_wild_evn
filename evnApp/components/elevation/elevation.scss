@@ -1,0 +1,47 @@
+.evn-elevation {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 16px 13px;
+    font-size: 20px;
+    line-height: 24px;
+
+    &.dp1 {
+        box-shadow:0px 1px 1px rgb(0 0 0 / 8%), 0px 2px 1px rgb(0 0 0 / 4%), 0px 1px 8px rgb(0 0 0 / 8%);
+    }
+
+    &.dp2 {
+        box-shadow: 0px 2px 2px rgb(0 0 0 / 4%), 0px 2px 1px rgb(0 0 0 / 8%), 0px 1px 12px rgb(0 0 0 / 4%);
+    }
+
+    &.dp3 {
+        box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.08), 0px 3px 3px rgba(0, 0, 0, 0.1), 0px 1px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    &.dp4 {
+        box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.08), 0px 1px 16px rgba(0, 0, 0, 0.1), 0px 2px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    &.dp6 {
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.08), 0px 1px 18px rgba(0, 0, 0, 0.1), 0px 3px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    &.dp8 {
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08), 0px 3px 14px rgba(0, 0, 0, 0.1), 0px 5px 5px rgba(0, 0, 0, 0.08);
+    }
+
+    &.dp9 {
+        box-shadow: 0px 9px 12px rgba(0, 0, 0, 0.04), 0px 3px 16px rgba(0, 0, 0, 0.04), 0px 5px 6px rgba(0, 0, 0, 0.04);
+    }
+
+    &.dp12 {
+        box-shadow: 0px 12px 17px rgba(0, 0, 0, 0.08), 0px 5px 22px rgba(0, 0, 0, 0.1), 0px 7px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    &.dp16 {
+        box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 6px 40px rgba(0, 0, 0, 0.04), 0px 8px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    &.dp24 {
+        box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.04), 0px 9px 46px rgba(0, 0, 0, 0.04), 0px 11px 15px rgba(0, 0, 0, 0.04);
+    }
+}
