@@ -1,11 +1,15 @@
 import { withLinks } from '@storybook/addon-links';
 import './button_large.scss';
-import button from './button_large.html';
+import * as button from './button_large.html';
 
 function createElementFromHTML(htmlString) {
+
   var div = document.createElement('div');
+
+
   div.innerHTML = htmlString.trim();
-  return div.firstChild;
+
+  return div;
 }
 
 export default {
@@ -21,46 +25,55 @@ export default {
   },
 };
 
-const buttonElement = createElementFromHTML(button);
+const buttonHtml = createElementFromHTML(button);
+const spanHtml = buttonHtml.querySelector("span");
+const buttonElement = buttonHtml.firstChild;
+
+
+
 
 const Template = ({ label, className, disabled, control, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large' }
   Template.args = { control: 'button_large' }
 
+  // console.log(button);
+  // console.log(buttonElement);
+  // console.log(buttonHtml);
 
   // change label
   buttonElement.innerHTML = label;
+
+
 
   // add class on switching stories
   buttonElement.classList.add(className);
 
   // add Class on switching type
-  var newClass = '';
-  switch (control) {
-    case 'Primary':
-      newClass = 'button_primary';
-      break;
-    case 'Secondary':
-      newClass = 'button_secondary';
-      break;
-    case 'Tertiary':
-      newClass = 'button_tertiary';
-      break;
-    case 'Light':
-      newClass = 'button_light';
-      break;
-    case 'Medium Grey':
-      newClass = 'button_grey';
-      break;
-    case 'Fixed':
-      newClass = 'button_fixed';
-      break;
-    case 'Flexible':
-      newClass = 'button_flexible';
-      break;
-  }
-
+  // var newClass = '';
+  // switch (control) {
+  //   case 'Primary':
+  //     newClass = 'button_primary';
+  //     break;
+  //   case 'Secondary':
+  //     newClass = 'button_secondary';
+  //     break;
+  //   case 'Tertiary':
+  //     newClass = 'button_tertiary';
+  //     break;
+  //   case 'Light':
+  //     newClass = 'button_light';
+  //     break;
+  //   case 'Medium Grey':
+  //     newClass = 'button_grey';
+  //     break;
+  //   case 'Fixed':
+  //     newClass = 'button_fixed';
+  //     break;
+  //   case 'Flexible':
+  //     newClass = 'button_flexible';
+  //     break;
+  // }
   //buttonElement.classList.add(newClass);
 
   // disabled
@@ -76,6 +89,8 @@ const Template = ({ label, className, disabled, control, ...args }) => {
     var secondClass = buttonElement.classList[1]
     buttonElement.classList.remove(secondClass);
   }
+
+
   return buttonElement;
 };
 
