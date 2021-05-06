@@ -1,0 +1,203 @@
+@import '../theme.scss';
+@import '../variables.scss';
+
+evn-icon .evn-icon {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+
+    &.evn-icon-inline {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &.evn-icon-small {
+        width: 12px;
+        height: 12px;
+    }
+
+    /*Global*/
+
+    &.evn-icon-color-disabled {
+        path {
+            stroke: #7B7B7B;
+        }
+    }
+
+    &.evn-icon-color-light {
+        path {
+            stroke: #c4c4c4;
+        }
+    }
+
+
+    &.evn-icon-color-white {
+
+        path {
+            stroke: #ffffff;
+        }
+
+        &.evn-icon-slim-dot {
+            circle {
+                fill: #ffffff;
+            }
+        }
+
+    }
+
+    &.evn-icon-color-primary {
+
+        path {
+            stroke: $primary-500;
+        }
+
+    }
+
+    &.evn-icon-color-success {
+
+        path {
+            stroke: $success-800;
+        }
+
+    }
+
+    &.evn-icon-color-warning {
+
+        path {
+            stroke: $warn-800;
+        }
+
+    }
+
+    &.evn-icon-color-error {
+
+        path {
+            stroke: $error-800;
+        }
+
+    }
+
+    &.evn-icon-color-sc600 {
+
+        path {
+            stroke: $secondary-800;
+        }
+
+    }
+
+    /*Global*/
+
+    /*Icon Specific*/
+    &.evn-icon-dot.evn-icon-color-white {
+        rect {
+            stroke: none;
+            fill: #ffffff;
+        }
+    }
+
+    &.evn-icon-new-user.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-close.evn-icon-color-success {
+
+        path {
+            stroke: none;
+            fill: $success-800;
+        }
+
+    }
+
+    &.evn-icon-close.evn-icon-color-warning {
+
+        path {
+            stroke: none;
+            fill: $warn-800;
+        }
+
+    }
+
+    &.evn-icon-close.evn-icon-color-error {
+
+        path {
+            stroke: none;
+            fill: $error-800;
+        }
+
+    }
+
+    &.evn-icon-warning.evn-icon-color-error {
+
+        path {
+            stroke: $error-800;
+            fill: $error-800;
+        }
+
+    }
+
+    &.evn-icon-angle-right.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-angle-left.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-facebook.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-youtube.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-twitter.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+
+    &.evn-icon-instagram.evn-icon-color-white {
+
+        path {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+        rect {
+            stroke: none;
+            fill: #ffffff;
+        }
+
+    }
+}

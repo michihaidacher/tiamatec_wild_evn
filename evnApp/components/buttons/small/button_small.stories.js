@@ -42,7 +42,7 @@ Primary.args = {
   className: 'button_primary',
 };
 
-console.log(Primary);
+//console.log(Primary);
 
 export const Secondary = Template.bind({});
 Secondary.args = {

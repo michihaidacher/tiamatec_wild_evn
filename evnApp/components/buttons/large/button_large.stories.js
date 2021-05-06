@@ -2,16 +2,6 @@ import { withLinks } from '@storybook/addon-links';
 import './button_large.scss';
 import * as button from './button_large.html';
 
-function createElementFromHTML(htmlString) {
-
-  var div = document.createElement('div');
-
-
-  div.innerHTML = htmlString.trim();
-
-  return div;
-}
-
 export default {
   title: 'Components/Button/Large',
   argTypes: {
@@ -25,71 +15,56 @@ export default {
   },
 };
 
+
+function createElementFromHTML(htmlString) {
+
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+  return div;
+}
+
+// whole html element
 const buttonHtml = createElementFromHTML(button);
-const spanHtml = buttonHtml.querySelector("span");
-const buttonElement = buttonHtml.firstChild;
+// evn html element
+const buttonElement = buttonHtml.children[0];
+// button html element
+const realButton = buttonHtml.children[0].children[0];
 
-
-
+// span html element
+const spanElement = buttonHtml.children[0].children[0].children[0].children[0];
 
 const Template = ({ label, className, disabled, control, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large' }
   Template.args = { control: 'button_large' }
 
-  // console.log(button);
-  // console.log(buttonElement);
-  // console.log(buttonHtml);
-
   // change label
-  buttonElement.innerHTML = label;
-
-
+  spanElement.innerHTML = label;
 
   // add class on switching stories
-  buttonElement.classList.add(className);
-
-  // add Class on switching type
-  // var newClass = '';
-  // switch (control) {
-  //   case 'Primary':
-  //     newClass = 'button_primary';
-  //     break;
-  //   case 'Secondary':
-  //     newClass = 'button_secondary';
-  //     break;
-  //   case 'Tertiary':
-  //     newClass = 'button_tertiary';
-  //     break;
-  //   case 'Light':
-  //     newClass = 'button_light';
-  //     break;
-  //   case 'Medium Grey':
-  //     newClass = 'button_grey';
-  //     break;
-  //   case 'Fixed':
-  //     newClass = 'button_fixed';
-  //     break;
-  //   case 'Flexible':
-  //     newClass = 'button_flexible';
-  //     break;
-  // }
-  //buttonElement.classList.add(newClass);
+  //buttonElement.classList.add(className);
+  
+  
+  //realButton.classList.remove('button-primary');
+  //realButton.classList.add('test');
 
   // disabled
   if (disabled) {
-    buttonElement.disabled = true;
+    realButton.disabled = true;
   } else {
-    buttonElement.disabled = false;
+    realButton.disabled = false;
   }
 
   // buttons first class is button large class
   // second class (old) will be deleted and new second class added
+  var lastClass = realButton.classList[realButton.classList.length -1];
+  realButton.classList.remove(lastClass);
+  realButton.classList.add(className);
+
   if (buttonElement.classList.length > 2) {
     var secondClass = buttonElement.classList[1]
     buttonElement.classList.remove(secondClass);
   }
-
 
   return buttonElement;
 };
