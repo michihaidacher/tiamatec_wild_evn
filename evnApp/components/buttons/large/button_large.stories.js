@@ -30,12 +30,8 @@ const realButton = buttonHtml.children[0].children[0];
 const spanElement = buttonHtml.children[0].children[0].children[0].children[0];
 // arrow svg
 const arrowSvgList = buttonHtml.querySelectorAll('svg');
-
 // arrow svg path
 const arrowSvgPath = buttonHtml.querySelectorAll('path');
-
-
-
 // svg container
 const arrowSvgContainerList = buttonHtml.querySelectorAll('evn-icon');
 
@@ -100,10 +96,6 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
     case 'Flexible':
       realButton.classList.add('button-flexible');
       break;
-
-    default:
-      realButton.classList.add('button-fixed');
-      break;
   }
   // remove last class ( lastClass is here still the button-primay/button-secondary...)
   // then add correct class
@@ -126,10 +118,10 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
       className = 'button-grey';
       break;
     case 'Large Fixed':
-      className = 'button-fixed';
+      className = 'large-button-fixed';
       break;
     case 'Large Flexible':
-      className = 'button-flexible';
+      className = 'large-button-flexible';
       break;
   }
 
@@ -206,14 +198,14 @@ MediumGrey.args = {
 export const LargeFixed = Template.bind({});
 LargeFixed.args = {
   label: 'Button',
-  className: 'button-fixed',
+  className: 'large-button-fixed',
   control: 'button-fixed',
 };
 
 export const LargeFlexible = Template.bind({});
 LargeFlexible.args = {
   label: 'Button',
-  className: 'button-flexible',
+  className: 'large-button-flexible',
   control: 'button-flexible',
 };
 

@@ -129,7 +129,9 @@ evn-action-button .button {
             height: 40px;
             border-radius: 8px;
             -webkit-mask-image: -webkit-radial-gradient(white, #000);
-            overflow: hidden;
+            // tiamatec: svg border bug?
+            overflow: visible;
+            //overflow: hidden;
             transition: background 150ms ease-out;
 
             &:hover {

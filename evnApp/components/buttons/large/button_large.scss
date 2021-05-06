@@ -3,17 +3,11 @@
 @import '../../action-button/action-button.scss';
 @import '../../icon/icon.scss';
 
-// tiamatec scss
-.svgContainerDisabled {
-    background-color: #E9E9E9 !important;
-}
 
-.svgArrowDisabled {
-    stroke: #7B7B7B !important;
-}
 
 .button-tertiary,
-.button-light {
+.button-light,
+.button-grey {
     evn-icon .evn-icon.evn-icon-color-white path {
         stroke: #000000;
     }
@@ -21,7 +15,9 @@
 
 
 .button {
-    font-family: "Frutiger Next LT W10";
+    //font-family: "Frutiger Next LT W10";
+    font-family: sans-serif !important;
+    font-weight: normal !important;
     border: 0;
     border-radius: 14px;
     line-height: 20px;
@@ -83,6 +79,21 @@
         }
 
         &.button-fixed {
+            //color: white;
+            //background-color: $primary-500;
+            width: 100%;
+
+            .text {
+                min-width: 160px;
+                margin-right: 10px;
+            }
+        }
+
+        &.button-flexible {
+            //color: white;
+            //background-color: $primary-500;
+            width: 100%;
+
             .text {
                 min-width: 160px;
                 margin-right: 10px;
@@ -156,6 +167,11 @@
         color: #ffffff;
         background-color: $secondary-900;
 
+        evn-icon {
+            background-color: $secondary-800;
+        }
+
+
         &.button-has-icon {
             i {
                 background-color: $secondary-900;
@@ -163,7 +179,11 @@
         }
 
         &:hover {
-            background-color: $secondary-800;
+            background-color: $secondary-800 !important;
+
+            evn-icon {
+                background-color: $secondary-700 !important;
+            }
 
             i {
                 background-color: $secondary-600;
@@ -237,14 +257,41 @@
 
     &.button-grey {
         background-color: $secondary-050;
+        color: black;
 
         .icon-wrapper {
-            background-color: $secondary-100;
+            background-color: $secondary-100 !important;
         }
 
-        path {
-            stroke: black !important;
+    }
+
+    &.large-button-fixed {
+        background-color: $primary-500;
+        color: white;
+
+        .icon-wrapper {
+            background-color: $secondary-100 !important;
         }
+
+        evn-icon {
+            background-color: $primary-600;
+        }
+
+    }
+
+    &.large-button-flexible {
+        background-color: $primary-500;
+        color: white;
+        width: 180px !important;
+
+        .icon-wrapper {
+            background-color: $secondary-100 !important;
+        }
+
+        evn-icon {
+            background-color: $primary-600;
+        }
+
     }
 
     &.button-large {
@@ -252,8 +299,6 @@
         font-size: 14px;
         line-height: 16px;
         letter-spacing: -0.1px;
-        background-color: $primary-500;
-        color: white;
 
         .icon-wrapper {
             background-color: $primary-600;
@@ -269,4 +314,13 @@
             vertical-align: -1px;
         }
     }
+}
+
+// tiamatec scss
+.svgContainerDisabled {
+    background-color: #E9E9E9 !important;
+}
+
+.svgArrowDisabled {
+    stroke: #7B7B7B !important;
 }

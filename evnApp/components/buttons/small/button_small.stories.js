@@ -1,48 +1,70 @@
 import { withLinks } from '@storybook/addon-links';
 import './button_small.scss';
-import button from './button_small.html';
+import * as button from './button_small.html';
 
-function createElementFromHTML(htmlString) {
-  var div = document.createElement('div');
-  div.innerHTML = htmlString.trim();
-  return div.firstChild; 
-}
 
 export default {
   title: 'Components/Button/Small',
   argTypes: {
     type: {
       label: { type: { name: 'string' } },
+      iconPosition: { control: 'radio', options: ['left', 'right'] },
       control: { type: 'select', options: ['Primary','Secondary','Tertiary','Light','Medium Grey','Small Fixed','Small Flexible']}},
-      adaptability: { control: 'select', options: ['Flexible', 'Fixed'] },
       disabled:   { control: 'boolean' },
+      icon:   { control: 'boolean' },
       iconType:   {control: 'text'},
       className: { type: { name: 'button_small' } },
     },
 };
 
+
+function createElementFromHTML(htmlString) {
+
+  var div = document.createElement('div');
+  div.innerHTML = htmlString.trim();
+  return div; 
+}
+
+// whole html element
+const buttonHtml = createElementFromHTML(button);
+// evn html element
+const buttonElement = buttonHtml.children[0];
+// real button
+const realButton = buttonHtml.children[0].children[0];
+
+console.log(realButton);
+
+
+
 const result = createElementFromHTML(button);
 
-const Template = ({ label, className, ...args }) => {
+const Template = ({ label, className, type, iconPosition, icon, disabled,  ...args }) => {
   Template.args = { label: 'hello123' };
-  Template.args = { className: 'button_small'}
+  Template.args = { className: 'button_small'};
+  Template.args = { type: 'button-primary' };
+  Template.args = { iconPosition: 'left' };
+  Template.args = { icon: 'left' };
+  Template.args = { disabled: true };
+
+
+  if(disabled){
+    realButton.classList.add('disabled');
+  }else{
+    realButton.classList.remove('disabled');
+  }
 
   result.classList.add(className);
   result.innerHTML = label;
-  if(result.classList.length > 2){
-    var secondClass = result.classList[1]
-    result.classList.remove(secondClass);
-  }
-  return result;
+
+  return buttonElement;
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
   className: 'button_primary',
+  iconPosition: 'left',
 };
-
-//console.log(Primary);
 
 export const Secondary = Template.bind({});
 Secondary.args = {
