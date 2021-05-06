@@ -1,37 +1,348 @@
-.button_small {
+@import '../../theme.scss';
+@import '../../variables.scss';
+@import '../../action-button/action-button.scss';
+@import '../../icon/icon.scss';
 
-    font-family: "Frutiger Next LT W10";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 16px;
-    color: #fff;
-    letter-spacing: -0.10000000149011612px;
-    text-align: left;
+
+
+.button-tertiary,
+.button-light,
+.button-grey {
+    evn-icon .evn-icon.evn-icon-color-white path {
+        stroke: #000000;
+    }
+}
+
+
+
+evn-icon .evn-icon {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.disabled {
+    background-color: $secondary-050 !important;
+    color: $secondary-500 !important;
+}
+
+.button-small {
+    //font-family: "Frutiger Next LT W10";
+    font-family: sans-serif !important;
+
     border: 0;
-    line-height: 20px;
-    height: 56px;
-    width: 237px;
     border-radius: 14px;
-    padding: 8px, 8px, 8px, 16px;
+    line-height: 20px;
+    padding: 8px 8px 8px 8px;
     cursor: pointer;
     display: inline-block;
     line-height: 1;
     transition: all 150ms ease-out;
+
+    evn-icon {
+        float: left;
+    }
+
+    span {
+        font-weight: normal !important;
+    }
+
+    .text {
+        font-weight: normal !important;
+    }
+
+    .mat-button-focus-overlay {
+        background-color: transparent !important;
+    }
+
+    &:hover {
+        transition: all 250ms cubic-bezier(0.38, 0.01, 0.45, 1);
+    }
+
+    .text {
+        font-weight: normal;
+    }
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+
+    &:disabled {
+        background-color: #f8f8f8 !important;
+        color: #7b7b7b !important;
+        cursor: not-allowed;
+
+        i {
+            background: url('../../assets/icon-disabled.svg') no-repeat center !important;
+            background-color: #e9e9e9 !important;
+        }
+    }
+
+    &.button-no-icon {
+        padding: 12px 11px;
+    }
+
+    &.button-has-icon {
+        position: relative;
+
+        // &::ng-deep .mat-button-wrapper {
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: space-between;
+        //     padding-left: 16px;
+        //     text-align: left;
+        // }
+
+        .text {
+            margin-right: 20px;
+        }
+
+        &.button-fixed {
+            //color: white;
+            //background-color: $primary-500;
+            width: 100%;
+
+            .text {
+                min-width: 160px;
+                margin-right: 10px;
+            }
+        }
+
+        &.button-flexible {
+            //color: white;
+            //background-color: $primary-500;
+            width: 100%;
+
+            .text {
+                min-width: 160px;
+                margin-right: 10px;
+            }
+        }
+
+        &.button-small {
+            border-radius: 12px;
+            font-size: 14px;
+            padding: 11px 12px;
+            padding-right: 12px;
+            line-height: 20px;
+
+            // &::ng-deep .mat-button-wrapper {
+            //     padding-left: 0;
+            // }
+
+            &.icon-left {
+                flex-direction: row-reverse;
+
+                // &::ng-deep .mat-button-wrapper {
+                //     flex-direction: row-reverse;
+                // }
+                .text {
+                    margin-right: 0;
+                    margin-left: 8px;
+                }
+            }
+
+            .text {
+                margin-right: 8px;
+            }
+
+            i {
+                padding: 0;
+                background-color: transparent !important;
+                background-size: contain !important;
+            }
+        }
+
+        i {
+            padding: 15px;
+            width: 20px;
+            height: 20px;
+            border-radius: 8px;
+            background: url('../../assets/icon-white.svg') no-repeat center;
+            transition: all 250ms cubic-bezier(0.38, 0.01, 0.45, 1);
+        }
+    }
+
+    &.button-primary {
+        color: white;
+        background-color: $primary-500;
+
+        &.button-has-icon {
+            i {
+                background-color: $primary-600;
+            }
+        }
+
+        &:hover {
+            background-color: $primary-600;
+
+            i {
+                background-color: $secondary-800;
+            }
+        }
+    }
+
+    &.button-secondary {
+        color: #ffffff;
+        background-color: $secondary-900;
+
+        evn-icon {
+            background-color: $secondary-800;
+        }
+
+
+        &.button-has-icon {
+            i {
+                background-color: $secondary-900;
+            }
+        }
+
+        &:hover {
+            background-color: $secondary-800 !important;
+
+            evn-icon {
+                background-color: $secondary-700 !important;
+            }
+
+            i {
+                background-color: $secondary-600;
+            }
+        }
+    }
+
+    &.button-tertiary {
+        color: $secondary-900;
+        border: 1px solid #E8E8E8;
+        background-color: #ffffff;
+
+        &.button-small {
+            &:hover {
+                border: 1px solid #000;
+            }
+        }
+
+        &.button-has-icon {
+            i {
+                background: url('../../assets/icon-black.svg') no-repeat center;
+                background-color: #f8f8f8;
+            }
+        }
+
+        &:hover {
+            i {
+                background-color: $secondary-100;
+            }
+        }
+    }
+
+    &.button-light {
+        color: #000000;
+        background-color: #ffffff;
+
+        &.button-small {
+            &:hover {
+                background-color: $secondary-050;
+            }
+        }
+
+        &.button-has-icon {
+            i {
+                background: url('../../assets/icon-black.svg') no-repeat center;
+                background-color: $secondary-050;
+            }
+        }
+
+        &:hover {
+            i {
+                background-color: $secondary-100;
+            }
+        }
+    }
+
+    &.button-primary-light {
+        background: #FDF5F1;
+        color: #E0001B;
+
+        &.button-has-icon {
+            i {
+                background-color: $secondary-100;
+            }
+        }
+
+        &:hover {
+            background: #F9E2D7;
+        }
+    }
+
+    &.button-grey {
+        background-color: $secondary-050;
+        color: black;
+
+        .icon-wrapper {
+            background-color: $secondary-100 !important;
+        }
+
+    }
+
+    &.large-button-fixed {
+        background-color: $primary-500;
+        color: white;
+
+        .icon-wrapper {
+            background-color: $secondary-100 !important;
+        }
+
+        evn-icon {
+            background-color: $primary-600;
+        }
+
+    }
+
+    &.large-button-flexible {
+        background-color: $primary-500;
+        color: white;
+        width: 180px !important;
+
+        .icon-wrapper {
+            background-color: $secondary-100 !important;
+        }
+
+        evn-icon {
+            background-color: $primary-600;
+        }
+
+    }
+
+    &.button-large {
+        font-family: 'ft-Bold';
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: -0.1px;
+
+        .icon-wrapper {
+            background-color: $primary-600;
+        }
+    }
+
+    &.button-small {
+        height: 40px;
+        padding: 10px 12px !important;
+        border-radius: 12px;
+
+        .text {
+            vertical-align: -1px;
+        }
+    }
 }
 
-.button_primary {
-    background: #E0001B;
+// tiamatec scss
+.svgContainerDisabled {
+    background-color: #E9E9E9 !important;
 }
 
-.button_primary:hover {
-    background: #B80015;
-}
-
-.button_secondary {
-    background: #000;
-}
-
-.button_secondary:hover {
-    background: #262626;
+.svgArrowDisabled {
+    stroke: #7B7B7B !important;
 }
