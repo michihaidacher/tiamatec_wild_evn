@@ -1,0 +1,79 @@
+@import '../theme.scss';
+@import '../variables.scss';
+
+evn-banner .evn-banner {
+    display: flex;
+    align-items: center;
+    max-width: 584px;
+    width: 584px;
+    min-height: 54px;
+    padding: 16px 24px;
+    border-radius: 12px;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    color: $secondary-900;
+
+    label {
+        background-color: red;
+    }
+
+    .section-lft {
+        margin-right: 24px;
+    }
+
+    .txt {
+
+        p {
+            margin-bottom: 0;
+        }
+
+        .title {
+            font: 500 14px/20px 'Frutiger Next LT W10';
+        }
+
+        .label {
+            font: 400 14px/20px 'Frutiger Next LT W10';
+        }
+
+        .title + .label {
+            margin-top: 2px;
+        }
+    }
+
+    .section-rt {
+        display: flex;
+        margin-left: auto;
+        align-items: center;
+
+        evn-icon .evn-icon {
+            margin-left: 24px;
+        }
+    }
+
+    .links {
+        display: flex;
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            margin-left: 24px;
+            font: 700 14px/16px 'Frutiger Next LT W10';
+        }
+    }
+
+    &.banner-success {
+        background-color: $success-200;
+        color: $success-800;
+    }
+
+    &.banner-warning {
+        background-color: $warn-200;
+        color: $secondary-900;
+    }
+
+    &.banner-error {
+        background-color: $error-200;
+        color: $error-800;
+    }
+    
+}
