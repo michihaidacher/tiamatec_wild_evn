@@ -3,6 +3,11 @@
 @import '../../action-button/action-button.scss';
 @import '../../icon/icon.scss';
 
+// tiamatec scss
+.svgContainerDisabled {
+    background-color: #FFFFFF;
+}
+
 .button {
     font-family: "Frutiger Next LT W10";
     border: 0;

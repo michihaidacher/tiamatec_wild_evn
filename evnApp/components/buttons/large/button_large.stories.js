@@ -15,9 +15,7 @@ export default {
   },
 };
 
-
 function createElementFromHTML(htmlString) {
-
   var div = document.createElement('div');
   div.innerHTML = htmlString.trim();
   return div;
@@ -29,41 +27,96 @@ const buttonHtml = createElementFromHTML(button);
 const buttonElement = buttonHtml.children[0];
 // button html element
 const realButton = buttonHtml.children[0].children[0];
-
 // span html element
 const spanElement = buttonHtml.children[0].children[0].children[0].children[0];
+// arrow svg
+const arrowSvgList = buttonHtml.querySelectorAll('svg');
+// arrow svg path
+const arrowSvgPath = buttonHtml.querySelector('path');
 
-const Template = ({ label, className, disabled, control, ...args }) => {
+// svg container
+const arrowSvgContainerList =  buttonHtml.querySelectorAll('evn-icon');
+
+
+const Template = ({ label, className, disabled, control, adaptability, iconType, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large' }
   Template.args = { control: 'button_large' }
+  Template.args = { adaptability: 'flexible' }
+  Template.args = { iconType: 'arrow-right' }
 
   // change label
   spanElement.innerHTML = label;
-
-  // add class on switching stories
-  //buttonElement.classList.add(className);
   
-  
-  //realButton.classList.remove('button-primary');
-  //realButton.classList.add('test');
 
-  // disabled
+
+  function changeSvgColorOnDisable(disable){
+    Array.prototype.forEach.call(arrowSvgContainerList, function(el, index, array){
+      if(disable){
+        el.classList.add("svgContainerDisabled");
+      }else{
+        el.classList.remove("svgContainerDisabled");
+      }
+    });
+  }
+  // disable button if set
   if (disabled) {
     realButton.disabled = true;
+    changeSvgColorOnDisable(true);
   } else {
     realButton.disabled = false;
+    changeSvgColorOnDisable(false);
   }
 
   // buttons first class is button large class
   // second class (old) will be deleted and new second class added
   var lastClass = realButton.classList[realButton.classList.length -1];
+
+  // remove fixed and flexible class if set
+  realButton.classList.remove("button-fixed");
+  realButton.classList.remove("button-flexible");
+  // add adaptability class
+  switch(adaptability){
+    case 'Fixed':
+        realButton.classList.add('button-fixed');
+      break;
+
+    case 'Flexible':
+      realButton.classList.add('button-flexible');
+      break;
+
+    default:
+      realButton.classList.add('button-fixed');
+      break;
+  }
+  // remove last class ( lastClass is here still the button-primay/button-secondary...)
+  // then add correct class
   realButton.classList.remove(lastClass);
   realButton.classList.add(className);
 
-  if (buttonElement.classList.length > 2) {
-    var secondClass = buttonElement.classList[1]
-    buttonElement.classList.remove(secondClass);
+  
+  function rotateArrow(degree){
+    Array.prototype.forEach.call(arrowSvgList, function(el, index, array){
+      el.setAttribute("transform", "rotate("+degree+")");
+    });
+  }
+  // rotate arrow
+  switch(iconType){
+    case 'arrow-right':
+      rotateArrow(0);
+    break;
+    case 'arrow-left':
+      rotateArrow(180);
+    break;
+    case 'arrow-up':
+      rotateArrow(270);
+    break;
+    case 'arrow-down':
+      rotateArrow(90);
+    break;
+    default:
+      rotateArrow(0);
+    break;
   }
 
   return buttonElement;
@@ -72,51 +125,52 @@ const Template = ({ label, className, disabled, control, ...args }) => {
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Button',
-  className: 'button_primary',
-  control: 'button_primary',
-  disabled: false
+  className: 'button-primary',
+  control: 'button-primary',
+  disabled: false,
+  adaptability: 'button-flexible'
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
-  className: 'button_secondary',
-  control: 'button_secondary',
+  className: 'button-secondary',
+  control: 'button-secondary',
 };
 
 export const Tertiary = Template.bind({});
 Tertiary.args = {
   label: 'Button',
-  className: 'button_tertiary',
-  control: 'button_tertiary',
+  className: 'button-tertiary',
+  control: 'button-tertiary',
 };
 
 export const Light = Template.bind({});
 Light.args = {
   label: 'Button',
-  className: 'button_light',
-  control: 'button_light',
+  className: 'button-light',
+  control: 'button-light',
 };
 
 export const MediumGrey = Template.bind({});
 MediumGrey.args = {
   label: 'Button',
-  className: 'button_grey',
-  control: 'button_grey',
+  className: 'button-grey',
+  control: 'button-grey',
 };
 
 export const LargeFixed = Template.bind({});
 LargeFixed.args = {
   label: 'Button',
-  className: 'button_fixed',
-  control: 'button_fixed',
+  className: 'button-fixed',
+  control: 'button-fixed',
 };
 
 export const LargeFlexible = Template.bind({});
 LargeFlexible.args = {
   label: 'Button',
-  className: 'button_flexible',
-  control: 'button_flexible',
+  className: 'button-flexible',
+  control: 'button-flexible',
 };
 
 
