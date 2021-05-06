@@ -1,4 +1,3 @@
-import { withLinks } from '@storybook/addon-links';
 import './button_large.scss';
 import * as button from './button_large.html';
 
@@ -35,7 +34,7 @@ const arrowSvgList = buttonHtml.querySelectorAll('svg');
 const arrowSvgPath = buttonHtml.querySelector('path');
 
 // svg container
-const arrowSvgContainerList =  buttonHtml.querySelectorAll('evn-icon');
+const arrowSvgContainerList = buttonHtml.querySelectorAll('evn-icon');
 
 
 const Template = ({ label, className, disabled, control, adaptability, iconType, ...args }) => {
@@ -47,14 +46,14 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
 
   // change label
   spanElement.innerHTML = label;
-  
 
 
-  function changeSvgColorOnDisable(disable){
-    Array.prototype.forEach.call(arrowSvgContainerList, function(el, index, array){
-      if(disable){
+
+  function changeSvgColorOnDisable(disable) {
+    Array.prototype.forEach.call(arrowSvgContainerList, function (el, index, array) {
+      if (disable) {
         el.classList.add("svgContainerDisabled");
-      }else{
+      } else {
         el.classList.remove("svgContainerDisabled");
       }
     });
@@ -70,15 +69,15 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
 
   // buttons first class is button large class
   // second class (old) will be deleted and new second class added
-  var lastClass = realButton.classList[realButton.classList.length -1];
+  var lastClass = realButton.classList[realButton.classList.length - 1];
 
   // remove fixed and flexible class if set
   realButton.classList.remove("button-fixed");
   realButton.classList.remove("button-flexible");
   // add adaptability class
-  switch(adaptability){
+  switch (adaptability) {
     case 'Fixed':
-        realButton.classList.add('button-fixed');
+      realButton.classList.add('button-fixed');
       break;
 
     case 'Flexible':
@@ -94,29 +93,29 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
   realButton.classList.remove(lastClass);
   realButton.classList.add(className);
 
-  
-  function rotateArrow(degree){
-    Array.prototype.forEach.call(arrowSvgList, function(el, index, array){
-      el.setAttribute("transform", "rotate("+degree+")");
+
+  function rotateArrow(degree) {
+    Array.prototype.forEach.call(arrowSvgList, function (el, index, array) {
+      el.setAttribute("transform", "rotate(" + degree + ")");
     });
   }
   // rotate arrow
-  switch(iconType){
+  switch (iconType) {
     case 'arrow-right':
       rotateArrow(0);
-    break;
+      break;
     case 'arrow-left':
       rotateArrow(180);
-    break;
+      break;
     case 'arrow-up':
       rotateArrow(270);
-    break;
+      break;
     case 'arrow-down':
       rotateArrow(90);
-    break;
+      break;
     default:
       rotateArrow(0);
-    break;
+      break;
   }
 
   return buttonElement;

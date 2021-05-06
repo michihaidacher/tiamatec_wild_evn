@@ -1,111 +1,176 @@
 import './slide-toggle.scss';
-import toggle from './slide-toggle.html';
+import * as toggle from './slide-toggle.html';
+
+export default {
+    title: 'Components/Toggle',
+    argTypes: {
+        type: {
+            label: { type: { name: 'string' } },
+            control: { type: 'select', options: ['Primary', 'Secondary', 'Tertiary', 'Light', 'Medium Grey', 'Fixed', 'Flexible'] }
+        },
+        adaptability: { control: 'select', options: ['Flexible', 'Fixed'] },
+        disabled: { control: 'boolean' },
+        iconType: { control: 'text' },
+    },
+};
 
 function createElementFromHTML(htmlString) {
     var div = document.createElement('div');
     div.innerHTML = htmlString.trim();
-    return div.firstChild;
+    return div;
 }
 
-export default {
-    title: 'Components/Slide Toggle',
-    argTypes: {
-        type: {
+// whole html element
+const toggleHtml = createElementFromHTML(toggle);
+// evn html element
+const toggleElement = toggleHtml.children[0];
+// toggle html element
+const realToggle = toggleHtml.children[0].children[0];
+// span html element
+const spanElement = toggleHtml.children[0].children[0].children[0].children[0];
+// arrow svg
+const arrowSvgList = toggleHtml.querySelectorAll('svg');
+// arrow svg path
+const arrowSvgPath = toggleHtml.querySelector('path');
 
-            control: { type: 'select', options: ['Enabled', 'Disabled', 'WithLabel', 'WithoutLabel'] }
-        },
-        disabled: { control: 'boolean' },
-        label: { type: { name: 'string' } },
-        showLabel: { control: 'boolean' },
+// svg container
+const arrowSvgContainerList = toggleHtml.querySelectorAll('evn-icon');
 
 
-    },
-};
-
-const toggleElement = createElementFromHTML(toggle);
-
-const Template = ({ label, className, disabled, showLabel, ...args }) => {
-    Template.args = { label: 'This is the label text.' };
+const Template = ({ label, className, disabled, control, adaptability, iconType, ...args }) => {
+    Template.args = { label: 'hello123' };
     Template.args = { className: '' }
-
+    Template.args = { control: '' }
+    Template.args = { adaptability: 'flexible' }
+    Template.args = { iconType: 'arrow-right' }
 
     // change label
-    toggleElement.innerHTML = label;
+    spanElement.innerHTML = label;
 
-    // add class on switching stories
-    toggleElement.classList.add(className);
 
-    // add Class on switching type
-    // var newClass = '';
-    // switch (control) {
-    //     case 'Primary':
-    //         newClass = 'button_primary';
-    //         break;
-    //     case 'Secondary':
-    //         newClass = 'button_secondary';
-    //         break;
-    //     case 'Tertiary':
-    //         newClass = 'button_tertiary';
-    //         break;
-    //     case 'Light':
-    //         newClass = 'button_light';
-    //         break;
-    //     case 'Medium Grey':
-    //         newClass = 'button_grey';
-    //         break;
-    //     case 'Fixed':
-    //         newClass = 'button_fixed';
-    //         break;
-    //     case 'Flexible':
-    //         newClass = 'button_flexible';
-    //         break;
-    // }
 
-    //toggleElement.classList.add(newClass);
-
-    // disabled
+    function changeSvgColorOnDisable(disable) {
+        Array.prototype.forEach.call(arrowSvgContainerList, function (el, index, array) {
+            if (disable) {
+                el.classList.add("svgContainerDisabled");
+            } else {
+                el.classList.remove("svgContainerDisabled");
+            }
+        });
+    }
+    // disable toggle if set
     if (disabled) {
-        toggleElement.disabled = true;
+        realToggle.disabled = true;
+        changeSvgColorOnDisable(true);
     } else {
-        toggleElement.disabled = false;
+        realToggle.disabled = false;
+        changeSvgColorOnDisable(false);
     }
 
-    // buttons first class is button large class
+    // toggles first class is toggle large class
     // second class (old) will be deleted and new second class added
-    if (toggleElement.classList.length > 2) {
-        var secondClass = toggleElement.classList[1]
-        toggleElement.classList.remove(secondClass);
+    var lastClass = realToggle.classList[realToggle.classList.length - 1];
+
+    // remove fixed and flexible class if set
+    realToggle.classList.remove("toggle-fixed");
+    realToggle.classList.remove("toggle-flexible");
+    // add adaptability class
+    switch (adaptability) {
+        case 'Fixed':
+            realToggle.classList.add('toggle-fixed');
+            break;
+
+        case 'Flexible':
+            realToggle.classList.add('toggle-flexible');
+            break;
+
+        default:
+            realToggle.classList.add('toggle-fixed');
+            break;
     }
+    // remove last class ( lastClass is here still the toggle-primay/toggle-secondary...)
+    // then add correct class
+    realToggle.classList.remove(lastClass);
+    realToggle.classList.add(className);
+
+
+    function rotateArrow(degree) {
+        Array.prototype.forEach.call(arrowSvgList, function (el, index, array) {
+            el.setAttribute("transform", "rotate(" + degree + ")");
+        });
+    }
+    // rotate arrow
+    switch (iconType) {
+        case 'arrow-right':
+            rotateArrow(0);
+            break;
+        case 'arrow-left':
+            rotateArrow(180);
+            break;
+        case 'arrow-up':
+            rotateArrow(270);
+            break;
+        case 'arrow-down':
+            rotateArrow(90);
+            break;
+        default:
+            rotateArrow(0);
+            break;
+    }
+
     return toggleElement;
 };
 
-export const Enabled = Template.bind({});
-Enabled.args = {
-    label: 'This is the label text.',
-    className: '0',
-    disabled: false
+export const Primary = Template.bind({});
+Primary.args = {
+    label: 'Toggle',
+    className: 'test',
+    control: 'test',
+    disabled: false,
+    adaptability: ''
 };
 
-export const Disabled = Template.bind({});
-Disabled.args = {
-    label: 'This is the label text.',
-    className: '0',
+export const Secondary = Template.bind({});
+Secondary.args = {
+    label: 'Toggle',
+    className: '',
+    control: 'button-secondary',
 };
 
-export const WithLabel = Template.bind({});
-WithLabel.args = {
-    label: 'This is the label text.',
-    className: '0',
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+    label: 'Toggle',
+    className: 'button-tertiary',
+    control: 'button-tertiary',
 };
 
-export const WithoutLabel = Template.bind({});
-WithoutLabel.args = {
-    label: 'This is the label text.',
-    className: '0',
+export const Light = Template.bind({});
+Light.args = {
+    label: 'Toggle',
+    className: 'button-light',
+    control: 'button-light',
 };
 
+export const MediumGrey = Template.bind({});
+MediumGrey.args = {
+    label: 'Toggle',
+    className: 'button-grey',
+    control: 'button-grey',
+};
 
+export const LargeFixed = Template.bind({});
+LargeFixed.args = {
+    label: 'Toggle',
+    className: 'button-fixed',
+    control: 'button-fixed',
+};
 
+export const LargeFlexible = Template.bind({});
+LargeFlexible.args = {
+    label: 'Toggle',
+    className: 'button-flexible',
+    control: 'button-flexible',
+};
 
 
 
