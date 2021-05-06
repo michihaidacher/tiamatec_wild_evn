@@ -31,25 +31,39 @@ const realButton = buttonHtml.children[0].children[0];
 const spanElement = buttonHtml.children[0].children[0].children[0].children[0];
 // arrow svg
 const arrowSvgList = buttonHtml.querySelectorAll('svg');
+
 // arrow svg path
-const arrowSvgPath = buttonHtml.querySelector('path');
+const arrowSvgPath = buttonHtml.querySelectorAll('path');
+
+
 
 // svg container
 const arrowSvgContainerList =  buttonHtml.querySelectorAll('evn-icon');
 
 
-const Template = ({ label, className, disabled, control, adaptability, iconType, ...args }) => {
+const Template = ({ label, className, disabled, control, adaptability, iconType, type, ...args }) => {
   Template.args = { label: 'hello123' };
   Template.args = { className: 'button_large' }
   Template.args = { control: 'button_large' }
   Template.args = { adaptability: 'flexible' }
   Template.args = { iconType: 'arrow-right' }
+  Template.args = { type: 'button-primary' }
+
+  
 
   // change label
   spanElement.innerHTML = label;
   
-
-
+  // START DISABLE CONTROL
+  function changeSvgPathStrokeOnDisable(disable){
+    Array.prototype.forEach.call(arrowSvgPath, function(el, index, array){
+      if(disable){
+        el.classList.add("svgArrowDisabled");
+      }else{
+        el.classList.remove("svgArrowDisabled");
+      }
+    });
+  }
   function changeSvgColorOnDisable(disable){
     Array.prototype.forEach.call(arrowSvgContainerList, function(el, index, array){
       if(disable){
@@ -63,9 +77,12 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
   if (disabled) {
     realButton.disabled = true;
     changeSvgColorOnDisable(true);
+    changeSvgPathStrokeOnDisable(true);
+
   } else {
     realButton.disabled = false;
     changeSvgColorOnDisable(false);
+    changeSvgPathStrokeOnDisable(false);
   }
 
   // buttons first class is button large class
@@ -92,6 +109,33 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
   // remove last class ( lastClass is here still the button-primay/button-secondary...)
   // then add correct class
   realButton.classList.remove(lastClass);
+
+  switch(type){
+    case 'Primary':
+      className = 'button-primary';
+    break;
+    case 'Secondary':
+      className = 'button-secondary';
+    break;
+    case 'Tertiary':
+      className = 'button-tertiary';
+    break;
+    case 'Light':
+      className = 'button-light';
+    break;
+    case 'Medium Grey':
+      className = 'button-grey';
+    break;
+    case 'Large Fixed':
+      className = 'button-fixed';
+    break;
+    case 'Large Flexible':
+      className = 'button-flexible';
+    break;
+  }
+
+
+
   realButton.classList.add(className);
 
   
@@ -118,6 +162,7 @@ const Template = ({ label, className, disabled, control, adaptability, iconType,
       rotateArrow(0);
     break;
   }
+
 
   return buttonElement;
 };
